@@ -24,6 +24,7 @@ gem 'redis', '~> 4.0'
 
 gem 'hamlit'
 gem 'annotate'
+gem 'i18n-tasks', '~> 0.7.4'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

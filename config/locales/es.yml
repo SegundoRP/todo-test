@@ -1,0 +1,9 @@
+---
+es:
+  categories:
+    new_category: Nueva categoria
+  errors:
+    messages:
+      not_saved: Not saved
+  hello: Hello world
+  name: Name
