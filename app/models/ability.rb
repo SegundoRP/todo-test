@@ -31,5 +31,6 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
     can :manage, Task, owner_id: user.id
+    can :read, Task, participating_users: { user_id: user.id }
   end
 end
