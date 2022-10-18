@@ -4,6 +4,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    # user es el equivalente del current_user
+
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?
@@ -28,5 +30,6 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
+    can :manage, Task
   end
 end
