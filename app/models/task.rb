@@ -22,6 +22,7 @@ class Task < ApplicationRecord
   validates :due_date_validity
 
   before_create :create_code
+  after_create :send_email
 
   def due_date_validity
     return if due_date.blank?
