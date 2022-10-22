@@ -10,7 +10,7 @@ class Tasks::NotesController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = Task.find(params[:task_id])
   end
 
   def note_params
