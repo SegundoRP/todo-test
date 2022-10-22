@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(version: 2022_10_22_023044) do
   end
 
   create_table "notes", force: :cascade do |t|
-    t.string "body"
-    t.string "text"
+    t.text "body"
     t.bigint "user_id", null: false
     t.bigint "task_id", null: false
     t.datetime "created_at", precision: 6, null: false
