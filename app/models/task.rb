@@ -9,6 +9,8 @@
 #  category_id :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  owner_id    :bigint           not null
+#  code        :string
 #
 class Task < ApplicationRecord
   belongs_to :category
@@ -17,17 +19,18 @@ class Task < ApplicationRecord
   has_many :participants, through: :participating_users, source: :user
   has_many :notes
 
-  validates :participating_users, presence: true
+  # validates :participating_users, presence: true
   validates :name, :description, presence: true
   validates :name, uniqueness: { case_insensitive: false }
-  validates :due_date_validity
+  # validates :due_date_validity
 
   before_create :create_code
-  after_create :send_email
+  # after_create :send_email
 
   def due_date_validity
     return if due_date.blank?
     return if due_date > Date.today
+
     errors.add :due_date, I18n.t('task.errors.invalid_due_date')
   end
 
