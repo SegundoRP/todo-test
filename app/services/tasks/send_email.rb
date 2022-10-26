@@ -3,5 +3,9 @@ class Tasks::SendEmail
     (task.participants + [task.owner]).each do |user|
       ParticipantMailer.with(user: user, task: task).new_task_email.deliver!
     end
+    [true, 'successful']
+  rescue => e
+    Rails.logger.e e
+    [false, 'failed']
   end
 end
