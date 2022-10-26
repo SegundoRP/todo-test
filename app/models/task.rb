@@ -39,6 +39,6 @@ class Task < ApplicationRecord
   end
 
   def send_email
-
+    Tasks::SendEmail.new.call self
   end
 end
