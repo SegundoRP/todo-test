@@ -5,7 +5,7 @@ class Tasks::SendEmail
     end
     [true, 'successful']
   rescue => e
-    Rails.logger.e e
+    Rails.logger.error e
     [false, 'failed']
   end
 end
