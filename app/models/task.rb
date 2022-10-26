@@ -39,8 +39,6 @@ class Task < ApplicationRecord
   end
 
   def send_email
-    (participants + [owner]).each do |user|
-      ParticipantMailer.with(user: user, task: self).new_task_email.deliver!
-    end
+
   end
 end
