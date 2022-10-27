@@ -26,6 +26,7 @@ gem 'hamlit'
 gem 'annotate'
 gem 'i18n-tasks', '~> 0.7.4'
 gem 'cancancan'
+gem 'sucker_punch'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
