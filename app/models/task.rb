@@ -39,6 +39,7 @@ class Task < ApplicationRecord
   end
 
   def send_email
-    Tasks::SendEmail.new.call self
+    return unless Rails.env.development?
+    Tasks::SendEmailJob.perform_async id
   end
 end
