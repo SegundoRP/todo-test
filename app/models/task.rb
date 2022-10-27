@@ -41,5 +41,6 @@ class Task < ApplicationRecord
   def send_email
     return unless Rails.env.development?
     Tasks::SendEmailJob.perform_async id
+    # Tasks::SendEmailJob.perform_in 5, id
   end
 end
