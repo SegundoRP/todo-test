@@ -29,6 +29,23 @@ class Task < ApplicationRecord
   before_create :create_code
   # after_create :send_email
 
+  aasm do
+    state :pending, initial: true
+    state :in_process, :finished
+
+    event :run do
+      transitions from: :sleeping, to: :running
+    end
+
+    event :clean do
+      transitions from: :running, to: :cleaning
+    end
+
+    event :sleep do
+      transitions from: [:running, :cleaning], to: :sleeping
+    end
+  end
+
   def due_date_validity
     return if due_date.blank?
     return if due_date > Date.today
