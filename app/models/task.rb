@@ -45,6 +45,11 @@ class Task < ApplicationRecord
     end
   end
 
+  def audit_status_change
+    puts "changing from #{aasm.from_state} to #{aasm.to_state} (event: #{aasm.current_event})"
+
+  end
+
   def due_date_validity
     return if due_date.blank?
     return if due_date > Date.today
