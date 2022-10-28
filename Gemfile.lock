@@ -9,6 +9,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.4.0)
+      concurrent-ruby (~> 1.0)
     actioncable (6.1.7)
       actionpack (= 6.1.7)
       activesupport (= 6.1.7)
@@ -294,6 +296,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aasm
   annotate
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.4)
