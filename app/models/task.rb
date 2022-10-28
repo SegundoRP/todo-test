@@ -13,6 +13,8 @@
 #  code        :string
 #
 class Task < ApplicationRecord
+  include AASM
+
   belongs_to :category
   belongs_to :owner, class_name: 'User'
   has_many :participating_users, class_name: 'Participant'
