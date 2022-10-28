@@ -29,10 +29,14 @@ class Task < ApplicationRecord
   before_create :create_code
   # after_create :send_email
 
-  aasm column: :state do
+   aasm column: :state do
     # el atributo no es necesario que4 se llame state, puede ser status
     state :pending, initial: true
     state :in_process, :finished
+
+    event :start do
+      transitions from: :pending, to: :in_process
+    end
 
     event :finish do
       transitions from: :in_process, to: :finished
