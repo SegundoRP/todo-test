@@ -34,6 +34,8 @@ class Task < ApplicationRecord
     state :pending, initial: true
     state :in_process, :finished
 
+    after_all_transitions :audit_status_change
+
     event :start do
       transitions from: :pending, to: :in_process
     end
