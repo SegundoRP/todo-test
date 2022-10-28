@@ -55,7 +55,7 @@ class Task < ApplicationRecord
         timestamp: Time.zone.now
       }
     )
-    # con el set persistimos la informacion en la bd
+    # con el set persistimos la informacion en la bd con mongo DB
   end
 
   def due_date_validity
