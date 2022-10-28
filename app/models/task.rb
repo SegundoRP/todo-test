@@ -33,16 +33,8 @@ class Task < ApplicationRecord
     state :pending, initial: true
     state :in_process, :finished
 
-    event :run do
-      transitions from: :sleeping, to: :running
-    end
-
-    event :clean do
-      transitions from: :running, to: :cleaning
-    end
-
-    event :sleep do
-      transitions from: [:running, :cleaning], to: :sleeping
+    event :finish do
+      transitions from: :in_process, to: :finished
     end
   end
 
