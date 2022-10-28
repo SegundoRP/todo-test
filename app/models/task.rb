@@ -46,8 +46,16 @@ class Task < ApplicationRecord
   end
 
   def audit_status_change
-    puts "changing from #{aasm.from_state} to #{aasm.to_state} (event: #{aasm.current_event})"
-
+    # puts "changing from #{aasm.from_state} to #{aasm.to_state} (event: #{aasm.current_event})"
+    set transitions: transitions.push(
+      {
+        from_state: aasm.from_state,
+        to_state: aasm.to_state,
+        current_event: aasm.current_event,
+        timestamp: Time.zone.now
+      }
+    )
+    # con el set persistimos la informacion en la bd
   end
 
   def due_date_validity
