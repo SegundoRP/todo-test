@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   load_and_authorize_resource
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[show edit update destroy trigger]
 
   # GET /tasks or /tasks.json
   def index
@@ -64,7 +64,7 @@ class TasksController < ApplicationController
   end
 
   def trigger
-    Tasks::TriggerEvent.new.call
+    Tasks::TriggerEvent.new.call @task, params[:event]
   end
 
   private
