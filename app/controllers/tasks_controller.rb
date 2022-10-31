@@ -70,6 +70,7 @@ class TasksController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  # Para actualizar estados usando eventos
   def set_task
     @task = Task.find(params[:id])
   end
